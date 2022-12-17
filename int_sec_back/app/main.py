@@ -7,10 +7,11 @@ import os
 class Item(BaseModel):
     url: str
 
+
 app = FastAPI()
 
 origins = ["*"]
- 
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
@@ -19,15 +20,16 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
 @app.post("/ping")
 async def root(data: Item):
     url = data.url
-    command = "ping -c 1 " + url
+    command = "dig " + url
     stream = os.popen(command)
     output = stream.readlines()
     return output
 
+
 @app.get("/")
 async def root():
     return {"message": "Hello World"}
-

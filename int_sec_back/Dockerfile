@@ -7,7 +7,9 @@ RUN DEBIAN_FRONTEND=noninteractive && \
   apt-get install -y pip && \
   apt-get install -y iputils-ping && \ 
   apt-get install -y openssh-server  && \
-  apt-get install -y net-tools
+  apt-get install -y net-tools && \
+  apt-get install -y dnsutils
+
 WORKDIR /code
 COPY requirements.txt /code/requirements.txt
 RUN pip3 install --no-cache-dir --upgrade -r /code/requirements.txt
