@@ -4,6 +4,8 @@ RUN mkdir -p /usr/src/nuxt
 WORKDIR /usr/src/nuxt
 
 COPY . /usr/src/nuxt/
+RUN rm -rf /tmp/nitro/worker*
+
 RUN npm install
 
 
