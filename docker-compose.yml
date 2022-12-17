@@ -1,0 +1,13 @@
+services:
+  int_sec_back:
+    build: ./int_sec_back
+    environment:
+      PORT: 80
+    ports:
+      - 80:80
+  int_sec_front:
+    build: ./int_sec_front
+    environment:
+      PORT: 3002
+    ports:
+      - 3002:3002
